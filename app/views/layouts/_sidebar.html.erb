@@ -11,6 +11,11 @@
           <i class="fa fa-folder sidebar-icon"></i> Programs
       </li>
     <%end%>
+     <%= link_to sites_path, class: 'sidebar-link' do %>
+      <li class="list-group-item <%if params[:controller] == "sites"%>active<%end%>">
+          <i class="fa fa-home sidebar-icon"></i> Sites
+      </li>
+    <%end%>
   </ul>
 </div>
 </div>
