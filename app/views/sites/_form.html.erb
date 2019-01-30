@@ -1,15 +1,12 @@
-<%= form_with(model: site, local: true) do |form| %>
-  <% if site.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
-
-      <ul>
-      <% site.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_with(model: site, remote: true) do |form| %>
+  <%= render 'layouts/error_messages', object: form.object %>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
     </div>
-  <% end %>
+  </div>
+</div>
 
   <div class="field">
     <%= form.label :name %>
@@ -36,22 +33,25 @@
     <%= form.text_field :address_3, id: :site_address_3 %>
   </div>
 
+<div class="row">
+  <div class="col-sm-5">
   <div class="field">
     <%= form.label :city %>
     <%= form.text_field :city, id: :site_city %>
   </div>
-
+  </div>
+<div class="col-sm-4">
   <div class="field">
     <%= form.label :state %>
     <%= form.text_field :state, id: :site_state %>
   </div>
-
-  <div class="field">
+  </div>
+  <div class="col-sm-3">
+    <div class="field">
     <%= form.label :postal_code %>
     <%= form.text_field :postal_code, id: :site_postal_code %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  </div>
   </div>
 <% end %>

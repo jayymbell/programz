@@ -13,39 +13,22 @@
   </div>
 </div>
 
-<div id="links-accordion" style="margin-top: 20px;">
-  <div class="card">
-    <div class="card-header" id="cycle-heading">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#cycles" aria-expanded="false" aria-controls="cycles">
-          Cycles
-        </button>
-        <%= link_to new_program_cycle_path( program_id: @program.id), class: 'btn btn-success btn-sm float-right', remote: true do%>
-          <i class="fa fa-plus"></i>
-        <%end%>
-      </h5>
-    </div>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="cycles-tab" data-toggle="tab" href="#cycles" role="tab" aria-controls="cycles" aria-selected="true">Cycles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="roles-tab" data-toggle="tab" href="#roles" role="tab" aria-controls="roles" aria-selected="true">Roles</a>
+      </li>
+    </ul>
 
-    <div id="cycles" class="collapse" aria-labelledby="cycle-heading" data-parent="#links-accordion">
-      <div class="card-body">
+    <div class="tab-content">
+      <div class="tab-pane active" id="cycles" role="tabpanel" aria-labelledby="cycles-tab">
         <%= render 'cycles'%>
       </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" id="roles-heading">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#roles" aria-expanded="false" aria-controls="roles">
-          Roles
-        </button>
-        <%= link_to new_program_role_path( program_id: @program.id), class: 'btn btn-success btn-sm float-right', remote: true do%>
-          <i class="fa fa-plus"></i>
-        <%end%>
-      </h5>
-    </div>
-    <div id="roles" class="collapse" aria-labelledby="roles-heading" data-parent="#links-accordion">
-      <div class="card-body">
+      <div class="tab-pane" id="roles" role="tabpanel" aria-labelledby="roles-tab">
         <%= render 'roles'%>
       </div>
     </div>

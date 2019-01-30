@@ -1,9 +1,19 @@
-<table class="table">
-
+<%= link_to 'New Cycle',new_program_cycle_path( program_id: @program.id), class: 'btn btn-success btn-sm float-right', remote: true, style: "margin-top: 10px;" %>
+<br/>
+<br/>
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Starts On</th>
+        <th>Ends On</th>
+        <th></th>
+    </tr>
+  </thead>
   <tbody>
     <% @program.cycles.order(:starts_on).each do |cycle| %>
       <tr>
-        <td><%= link_to cycle.name, edit_program_cycle_path(cycle), remote: true %></td>
+        <td><%= link_to cycle.name, program_cycle_path(cycle) %></td>
         <td><%= cycle.starts_on %></td>
         <td><%= cycle.ends_on %></td>
         <td>

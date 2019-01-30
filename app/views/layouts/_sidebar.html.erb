@@ -7,7 +7,7 @@
       </li>
     <%end%>
     <%= link_to programs_path, class: 'sidebar-link' do %>
-      <li class="list-group-item <%if params[:controller] == "programs"%>active<%end%>">
+      <li class="list-group-item <%if params[:controller].include?("program") %>active<%end%>">
           <i class="fa fa-folder sidebar-icon"></i> Programs
       </li>
     <%end%>

@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Sites</h1>
+<div class="row">
+<div class="col-sm-12">
+<h3 style="display:inline-block;">Sites</h3>
+<%= link_to 'New Site', new_site_path, class: 'btn btn-success btn-sm float-right', remote: true %>
 
 <table>
   <thead>
@@ -35,7 +36,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Site', new_site_path %>
+</div>
+</div>
