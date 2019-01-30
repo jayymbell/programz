@@ -6,7 +6,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Name</th>
       <th></th>
     </tr>
@@ -15,8 +14,7 @@
   <tbody>
     <% @programs.each do |program| %>
       <tr>
-        <td><%= link_to program.id, program_path(program) %></td>
-        <td><%= program.name %></td>
+        <td><%= link_to program.name, program_path(program) %></td>
         <td>
         <%= link_to program, method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="fa fa-trash text-danger float-right"></i>

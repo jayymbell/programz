@@ -1,29 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Program:</strong>
-  <%= @program_cycle.program %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @program_cycle.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @program_cycle.description %>
-</p>
-
-<p>
-  <strong>Starts on:</strong>
-  <%= @program_cycle.starts_on %>
-</p>
-
-<p>
-  <strong>Ends on:</strong>
-  <%= @program_cycle.ends_on %>
-</p>
-
-<%= link_to 'Edit', edit_program_cycle_path(@program_cycle) %> |
-<%= link_to 'Back', program_cycles_path %>
+<div class="row">
+  <div class="col-sm-8">
+    <h3><%= @program_cycle.program.name %></h3>
+    <h5 style="display:inline-block;"><%= @program_cycle.name %></h5>
+    <span class="text-secondary"><%= @program_cycle.starts_on.strftime('%m/%d/%y') %> - <%= @program_cycle.ends_on.strftime('%m/%d/%y') %></span>
+  </div>
+  <div class="col-sm-4">
+    <div class="actions float-right">
+    <%= link_to 'Back', program_path(@program_cycle.program), class: 'btn btn-link btn-sm' %>
+      <%= link_to 'Edit', edit_program_cycle_path(@program_cycle), class: 'btn btn-link btn-sm', remote: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+      <%= @program_cycle.description %>
+  </div>
+</div>
