@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :program_cycles
   resources :programs
   resources :permissions
   root 'dashboards#show'

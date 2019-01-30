@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @program_cycle.program %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @program_cycle.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @program_cycle.description %>
+</p>
+
+<p>
+  <strong>Starts on:</strong>
+  <%= @program_cycle.starts_on %>
+</p>
+
+<p>
+  <strong>Ends on:</strong>
+  <%= @program_cycle.ends_on %>
+</p>
+
+<%= link_to 'Edit', edit_program_cycle_path(@program_cycle) %> |
+<%= link_to 'Back', program_cycles_path %>

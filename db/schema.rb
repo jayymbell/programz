@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190130172529) do
+ActiveRecord::Schema.define(version: 20190130180934) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20190130172529) do
     t.string "activity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "program_cycles", force: :cascade do |t|
+    t.integer "program_id"
+    t.string "name"
+    t.text "description"
+    t.date "starts_on"
+    t.date "ends_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_program_cycles_on_program_id"
   end
 
   create_table "programs", force: :cascade do |t|

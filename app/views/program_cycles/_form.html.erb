@@ -1,0 +1,42 @@
+<%= form_with(model: program_cycle, local: true) do |form| %>
+  <% if program_cycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(program_cycle.errors.count, "error") %> prohibited this program_cycle from being saved:</h2>
+
+      <ul>
+      <% program_cycle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :program_id %>
+    <%= form.text_field :program_id, id: :program_cycle_program_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :program_cycle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :program_cycle_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starts_on %>
+    <%= form.date_select :starts_on, id: :program_cycle_starts_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ends_on %>
+    <%= form.date_select :ends_on, id: :program_cycle_ends_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
