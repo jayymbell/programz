@@ -32,6 +32,15 @@ class ProgramCyclesController < ApplicationController
   # POST /program_cycles
   # POST /program_cycles.json
   def create
+
+    if !params[:program_cycle][:starts_on].nil? && params[:program_cycle][:starts_on] != ""
+      params[:program_cycle][:starts_on] = Date.strptime(program_cycle_params[:starts_on], "%m/%d/%Y")
+    end
+
+    if !params[:program_cycle][:ends_on].nil? && params[:program_cycle][:ends_on] != ""
+      params[:program_cycle][:ends_on] = Date.strptime(program_cycle_params[:ends_on], "%m/%d/%Y")
+    end
+
     @program_cycle = ProgramCycle.new(program_cycle_params)
 
     respond_to do |format|
@@ -50,6 +59,13 @@ class ProgramCyclesController < ApplicationController
   # PATCH/PUT /program_cycles/1
   # PATCH/PUT /program_cycles/1.json
   def update
+    if !params[:program_cycle][:starts_on].nil? && params[:program_cycle][:starts_on] != ""
+      params[:program_cycle][:starts_on] = Date.strptime(program_cycle_params[:starts_on], "%m/%d/%Y")
+    end
+    
+    if !params[:program_cycle][:ends_on].nil? && params[:program_cycle][:ends_on] != ""
+      params[:program_cycle][:ends_on] = Date.strptime(program_cycle_params[:ends_on], "%m/%d/%Y")
+    end
     respond_to do |format|
       if @program_cycle.update(program_cycle_params)
         format.html { redirect_to @program_cycle, notice: 'Program cycle was successfully updated.' }

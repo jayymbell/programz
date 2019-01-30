@@ -1,22 +1,19 @@
-<%= link_to 'New Cycle', new_program_cycle_path( program_id: @program.id), class: 'btn btn-success btn-sm float-right', remote: true %>
-<br/>
-<br/>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th></th>
+      <th style="border-top: none;">Id</th>
+      <th style="border-top: none;">Name</th>
+      <th style="border-top: none;"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @program.cycles.each do |cycle| %>
       <tr>
-        <td><%= link_to cycle.id, edit_cycle_path(cycle), remote: true %></td>
+        <td><%= link_to cycle.id, edit_program_cycle_path(cycle), remote: true %></td>
         <td><%= cycle.name %></td>
         <td>
-        <%= link_to cycle, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= link_to cycle, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %>
           <i class="fa fa-trash text-danger float-right"></i>
         <%end%>
         </td>
