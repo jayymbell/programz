@@ -15,6 +15,14 @@ class ProgramCyclesController < ApplicationController
   # GET /program_cycles/new
   def new
     @program_cycle = ProgramCycle.new
+    program = Program.find(params[:program_id])
+
+    if program.nil?
+      redirect_to root_path
+    else
+      @program_cycle.program_id = program.id
+    end
+
   end
 
   # GET /program_cycles/1/edit
@@ -30,9 +38,11 @@ class ProgramCyclesController < ApplicationController
       if @program_cycle.save
         format.html { redirect_to @program_cycle, notice: 'Program cycle was successfully created.' }
         format.json { render :show, status: :created, location: @program_cycle }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :new }
         format.json { render json: @program_cycle.errors, status: :unprocessable_entity }
+        format.js {render 'new'} 
       end
     end
   end
@@ -44,9 +54,11 @@ class ProgramCyclesController < ApplicationController
       if @program_cycle.update(program_cycle_params)
         format.html { redirect_to @program_cycle, notice: 'Program cycle was successfully updated.' }
         format.json { render :show, status: :ok, location: @program_cycle }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :edit }
         format.json { render json: @program_cycle.errors, status: :unprocessable_entity }
+        format.js {render 'edit'} 
       end
     end
   end
@@ -58,6 +70,7 @@ class ProgramCyclesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to program_cycles_url, notice: 'Program cycle was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {render :js => "window.location.reload();"}
     end
   end
 

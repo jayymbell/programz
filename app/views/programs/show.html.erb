@@ -13,3 +13,21 @@
   </div>
 </div>
 
+<div id="links" style="margin-top: 20px;">
+  <div class="card">
+    <div class="card-header" id="cycle-heading">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#cycles" aria-expanded="true" aria-controls="cycles">
+          Cycles
+        </button>
+      </h5>
+    </div>
+
+    <div id="cycles" class="collapse show" aria-labelledby="cycle-heading" data-parent="#links">
+      <div class="card-body">
+        <%= render 'cycles'%>
+      </div>
+    </div>
+  </div>
+</div>
+

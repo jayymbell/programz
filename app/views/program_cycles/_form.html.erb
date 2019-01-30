@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :program_id %>
-    <%= form.text_field :program_id, id: :program_cycle_program_id %>
-  </div>
+  <%= form.hidden_field :program_id, id: :program_cycle_program_id %>
 
   <div class="field">
     <%= form.label :name %>
