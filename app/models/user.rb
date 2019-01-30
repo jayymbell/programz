@@ -17,6 +17,10 @@ class User < ApplicationRecord
         "#{self.last_name}, #{self.first_name}"
     end
 
+    def full_name
+        "#{self.first_name} #{self.last_name}"
+    end
+
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
         BCrypt::Engine.cost

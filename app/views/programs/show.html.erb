@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-12">
+  <h3 style="display:inline-block;"><%= @program.name %></h3>
+    <div class="actions float-right">
+    <%= link_to 'Back', programs_path, class: 'btn btn-link btn-sm' %>
+      <%= link_to 'Edit', edit_program_path(@program), class: 'btn btn-link btn-sm', remote: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= @program.description %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @program.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @program.description %>
-</p>
-
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', programs_path %>

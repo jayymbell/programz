@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-sm-12">
+<h3 style="display:inline-block;">Programs</h3>
+<%= link_to 'New Program', new_program_path, class: 'btn btn-success btn-sm float-right', remote: true %>
 
-<h1>Programs</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @programs.each do |program| %>
       <tr>
+        <td><%= link_to program.id, program_path(program) %></td>
         <td><%= program.name %></td>
-        <td><%= program.description %></td>
-        <td><%= link_to 'Show', program %></td>
-        <td><%= link_to 'Edit', edit_program_path(program) %></td>
-        <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to program, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash text-danger float-right"></i>
+        <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Program', new_program_path %>
+</div>
+</div>

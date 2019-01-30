@@ -1,15 +1,12 @@
 <%= form_with(model: program, local: true) do |form| %>
-  <% if program.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(program.errors.count, "error") %> prohibited this program from being saved:</h2>
-
-      <ul>
-      <% program.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= render 'layouts/error_messages', object: form.object %>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
     </div>
-  <% end %>
+  </div>
+</div>
 
   <div class="field">
     <%= form.label :name %>
@@ -18,10 +15,7 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :program_description %>
+    <%= form.text_area :description, id: :program_description, style: "height: 200px;" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

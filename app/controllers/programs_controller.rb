@@ -30,9 +30,11 @@ class ProgramsController < ApplicationController
       if @program.save
         format.html { redirect_to @program, notice: 'Program was successfully created.' }
         format.json { render :show, status: :created, location: @program }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :new }
         format.json { render json: @program.errors, status: :unprocessable_entity }
+        format.js {render 'new'} 
       end
     end
   end
@@ -44,9 +46,11 @@ class ProgramsController < ApplicationController
       if @program.update(program_params)
         format.html { redirect_to @program, notice: 'Program was successfully updated.' }
         format.json { render :show, status: :ok, location: @program }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :edit }
         format.json { render json: @program.errors, status: :unprocessable_entity }
+        format.js {render 'edit'} 
       end
     end
   end
@@ -58,6 +62,7 @@ class ProgramsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to programs_url, notice: 'Program was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {render :js => "window.location.reload();"}
     end
   end
 
