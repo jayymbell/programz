@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Program Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @program_roles.each do |program_role| %>
+      <tr>
+        <td><%= program_role.program %></td>
+        <td><%= program_role.name %></td>
+        <td><%= program_role.description %></td>
+        <td><%= link_to 'Show', program_role %></td>
+        <td><%= link_to 'Edit', edit_program_role_path(program_role) %></td>
+        <td><%= link_to 'Destroy', program_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program Role', new_program_role_path %>

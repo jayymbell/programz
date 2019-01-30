@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @program_role.program %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @program_role.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @program_role.description %>
+</p>
+
+<%= link_to 'Edit', edit_program_role_path(@program_role) %> |
+<%= link_to 'Back', program_roles_path %>
