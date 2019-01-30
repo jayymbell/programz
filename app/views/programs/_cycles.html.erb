@@ -1,17 +1,11 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th style="border-top: none;">Id</th>
-      <th style="border-top: none;">Name</th>
-      <th style="border-top: none;"></th>
-    </tr>
-  </thead>
+<table class="table">
 
   <tbody>
-    <% @program.cycles.each do |cycle| %>
+    <% @program.cycles.order(:starts_on).each do |cycle| %>
       <tr>
-        <td><%= link_to cycle.id, edit_program_cycle_path(cycle), remote: true %></td>
-        <td><%= cycle.name %></td>
+        <td><%= link_to cycle.name, edit_program_cycle_path(cycle), remote: true %></td>
+        <td><%= cycle.starts_on %></td>
+        <td><%= cycle.ends_on %></td>
         <td>
         <%= link_to cycle, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %>
           <i class="fa fa-trash text-danger float-right"></i>

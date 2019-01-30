@@ -1,0 +1,15 @@
+<table class="table">
+
+  <tbody>
+    <% @program.roles.each do |role| %>
+      <tr>
+        <td><%= link_to role.name, edit_program_role_path(role), remote: true %></td>
+        <td>
+        <%= link_to role, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %>
+          <i class="fa fa-trash text-danger float-right"></i>
+        <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

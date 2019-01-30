@@ -15,6 +15,13 @@ class ProgramRolesController < ApplicationController
   # GET /program_roles/new
   def new
     @program_role = ProgramRole.new
+    program = Program.find(params[:program_id])
+
+    if program.nil?
+      redirect_to root_path
+    else
+      @program_role.program_id = program.id
+    end
   end
 
   # GET /program_roles/1/edit
@@ -30,9 +37,11 @@ class ProgramRolesController < ApplicationController
       if @program_role.save
         format.html { redirect_to @program_role, notice: 'Program role was successfully created.' }
         format.json { render :show, status: :created, location: @program_role }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :new }
         format.json { render json: @program_role.errors, status: :unprocessable_entity }
+        format.js {render 'new'} 
       end
     end
   end
@@ -44,9 +53,11 @@ class ProgramRolesController < ApplicationController
       if @program_role.update(program_role_params)
         format.html { redirect_to @program_role, notice: 'Program role was successfully updated.' }
         format.json { render :show, status: :ok, location: @program_role }
+        format.js {render :js => "window.location.reload();"}
       else
         format.html { render :edit }
         format.json { render json: @program_role.errors, status: :unprocessable_entity }
+        format.js {render 'edit'} 
       end
     end
   end

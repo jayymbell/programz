@@ -1,20 +1,14 @@
 <%= form_with(model: program_role, local: true) do |form| %>
-  <% if program_role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(program_role.errors.count, "error") %> prohibited this program_role from being saved:</h2>
-
-      <ul>
-      <% program_role.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+     <%= render 'layouts/error_messages', object: form.object %>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :program_id %>
-    <%= form.text_field :program_id, id: :program_role_program_id %>
   </div>
+</div>
+
+  <%= form.hidden_field :program_id, id: :program_role_program_id %>
 
   <div class="field">
     <%= form.label :name %>
@@ -26,7 +20,4 @@
     <%= form.text_area :description, id: :program_role_description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
