@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+  <h3 style="display:inline-block;"><%= @program.name %></h3>
+    <div class="actions float-right">
+    <%= link_to 'Back', programs_path, class: 'btn btn-link btn-sm' %>
+      <%= link_to 'Edit', edit_program_path(@program), class: 'btn btn-link btn-sm', remote: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= @program.description %>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="cycles-tab" data-toggle="tab" href="#cycles" role="tab" aria-controls="cycles" aria-selected="true">Cycles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="roles-tab" data-toggle="tab" href="#roles" role="tab" aria-controls="roles" aria-selected="true">Roles</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="cycles" role="tabpanel" aria-labelledby="cycles-tab">
+        <%= render 'cycles'%>
+      </div>
+      <div class="tab-pane" id="roles" role="tabpanel" aria-labelledby="roles-tab">
+        <%= render 'roles'%>
+      </div>
+    </div>
+  </div>
+</div>
+

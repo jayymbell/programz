@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Program Cycles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Starts on</th>
+      <th>Ends on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @program_cycles.each do |program_cycle| %>
+      <tr>
+        <td><%= program_cycle.program %></td>
+        <td><%= program_cycle.name %></td>
+        <td><%= program_cycle.description %></td>
+        <td><%= program_cycle.starts_on %></td>
+        <td><%= program_cycle.ends_on %></td>
+        <td><%= link_to 'Show', program_cycle %></td>
+        <td><%= link_to 'Edit', edit_program_cycle_path(program_cycle) %></td>
+        <td><%= link_to 'Destroy', program_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program Cycle', new_program_cycle_path %>

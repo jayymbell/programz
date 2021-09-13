@@ -1,0 +1,57 @@
+<%= form_with(model: site, remote: true) do |form| %>
+  <%= render 'layouts/error_messages', object: form.object %>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
+    </div>
+  </div>
+</div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :site_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :site_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_1 %>
+    <%= form.text_field :address_1, id: :site_address_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_2 %>
+    <%= form.text_field :address_2, id: :site_address_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_3 %>
+    <%= form.text_field :address_3, id: :site_address_3 %>
+  </div>
+
+<div class="row">
+  <div class="col-sm-5">
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :site_city %>
+  </div>
+  </div>
+<div class="col-sm-4">
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :site_state %>
+  </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code, id: :site_postal_code %>
+  </div>
+
+  </div>
+  </div>
+<% end %>

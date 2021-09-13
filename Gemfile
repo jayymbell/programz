@@ -67,3 +67,4 @@ gem "font-awesome-rails"
 
 gem "figaro"
 
+gem 'bootstrap-datepicker-rails'

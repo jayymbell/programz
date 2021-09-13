@@ -1,0 +1,23 @@
+<%= form_with(model: program_role, remote: true) do |form| %>
+     <%= render 'layouts/error_messages', object: form.object %>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
+    </div>
+  </div>
+</div>
+
+  <%= form.hidden_field :program_id, id: :program_role_program_id %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :program_role_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :program_role_description %>
+  </div>
+
+<% end %>

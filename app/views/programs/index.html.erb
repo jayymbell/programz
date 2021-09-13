@@ -1,0 +1,30 @@
+<div class="row">
+<div class="col-sm-12">
+<h3 style="display:inline-block;">Programs</h3>
+<%= link_to 'New Program', new_program_path, class: 'btn btn-success btn-sm float-right', remote: true %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= link_to program.name, program_path(program) %></td>
+        <td>
+        <%= link_to program, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash text-danger float-right"></i>
+        <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+</div>
